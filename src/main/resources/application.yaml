@@ -1,0 +1,38 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: learn-quartz
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.56.10:3306/quartz?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Tokyo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  #quartz配置 请不要在yaml里面直接配置 不能直接生效还要读取文件配置相当麻烦 直接写config里面好
+#  quartz:
+#    job-store-type: jdbc
+#    properties:
+#      org:
+#        quartz:
+#          scheduler:
+#            instanceName: clusteredScheduler  #集群名字
+#            instanceId: AUTO   #自动给集群中的节点分配一个唯一ID
+#          jobStore:
+#            class: org.quartz.impl.jdbcjobstore.JobStoreTX  #数据保存方式为数据库持久化
+#            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate  #数据库代理类
+#            tablePrefix: QRTZ_     #mysql中表前缀
+#            isClustered: true      #是否加入集群
+#            clusterCheckinInterval: 10000     #调度实例失效的检查时间间隔 ms 心跳检查集群是否在线
+#            useProperties: false   #jobDataMaps 是否都为String类型 默认false
+#            txIsolationLevelSerializable : true   #事务托管给JDBC
+#          threadPool:
+#            class: org.quartz.simpl.SimpleThreadPool   #线程池的实现类
+#            threadCount: 15  #线程数量
+#            threadPriority: 5 #线程的优先级,取值在Thread.MINPRIORITY(1)到Thread.MAXPRIORITY(10) 默认5
+#            threadsInheritContextClassLoaderOfInitializingThread: true  #线程上下文类加载器是否继承自初始线程的加载器 默认false
+
+
+
